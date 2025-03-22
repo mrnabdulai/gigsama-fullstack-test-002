@@ -209,7 +209,7 @@ const ProjectChatPage: FC = () => {
       <div className='pb-[60px] sticky bottom-0 w-full bg-white '>
         <div
           ref={messagesContainerRef}
-          className='max-w-[800px] h-[200px] overflow-y-auto mx-auto space-y-4 mb-[40px] flex flex-col justify-center items-center'
+          className='max-w-[800px] h-[200px] overflow-y-auto mx-auto space-y-2 mb-[40px] flex flex-col justify-center items-center'
         >
           {query.data?.data?.aiSessions &&
             query.data.data.aiSessions.length > 0 && (
