@@ -3,6 +3,61 @@ import { AxiosResponse } from "axios";
 import { IProject } from "Modules/Project/typings";
 import { useNavigate, useParams } from "react-router-dom";
 
+const NewProjectButton = () => {
+  const navigate = useNavigate();
+  return (
+    <button className='p-1' onClick={() => navigate("/new-project")}>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width={20}
+        height={20}
+        viewBox='0 0 20 20'
+        fill='none'
+      >
+        <g id='SVG'>
+          <path
+            id='Vector'
+            d='M2.5 4.16667H15.8333'
+            stroke='#5D5D5D'
+            strokeWidth='1.66667'
+            strokeLinecap='square'
+            strokeLinejoin='round'
+          />
+          <path
+            id='Vector_2'
+            d='M2.5 10H5.83333'
+            stroke='#5D5D5D'
+            strokeWidth='1.66667'
+            strokeLinecap='square'
+            strokeLinejoin='round'
+          />
+          <path
+            id='Vector_3'
+            d='M13.3333 15.8333C15.1743 15.8333 16.6667 14.341 16.6667 12.5C16.6667 10.6591 15.1743 9.16667 13.3333 9.16667C11.4924 9.16667 10 10.6591 10 12.5C10 14.341 11.4924 15.8333 13.3333 15.8333Z'
+            stroke='#5D5D5D'
+            strokeWidth='1.66667'
+          />
+          <path
+            id='Vector_4'
+            d='M15.8335 15L17.5002 16.6667'
+            stroke='#5D5D5D'
+            strokeWidth='1.66667'
+            strokeLinecap='square'
+          />
+          <path
+            id='Vector_5'
+            d='M2.5 15.8333H5.83333'
+            stroke='#5D5D5D'
+            strokeWidth='1.66667'
+            strokeLinecap='square'
+            strokeLinejoin='round'
+          />
+        </g>
+      </svg>
+    </button>
+  );
+};
+
 function Navbar() {
   const queryClient = useQueryClient();
   const { slug } = useParams();
@@ -10,7 +65,6 @@ function Navbar() {
     "project",
     slug,
   ]);
-
 
   const navigate = useNavigate();
 
@@ -47,55 +101,25 @@ function Navbar() {
             </div>
           )}
           <div className='flex gap-0.5 items-center'>
-            <button  className='p-1'>
+            {slug ? (
+              <NewProjectButton />
+            ) : (
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                width={20}
-                height={20}
-                viewBox='0 0 20 20'
+                width={24}
+                height={24}
+                viewBox='0 0 24 24'
                 fill='none'
               >
-                <g id='SVG'>
+                <g id='close-line'>
                   <path
                     id='Vector'
-                    d='M2.5 4.16667H15.8333'
-                    stroke='#5D5D5D'
-                    strokeWidth='1.66667'
-                    strokeLinecap='square'
-                    strokeLinejoin='round'
-                  />
-                  <path
-                    id='Vector_2'
-                    d='M2.5 10H5.83333'
-                    stroke='#5D5D5D'
-                    strokeWidth='1.66667'
-                    strokeLinecap='square'
-                    strokeLinejoin='round'
-                  />
-                  <path
-                    id='Vector_3'
-                    d='M13.3333 15.8333C15.1743 15.8333 16.6667 14.341 16.6667 12.5C16.6667 10.6591 15.1743 9.16667 13.3333 9.16667C11.4924 9.16667 10 10.6591 10 12.5C10 14.341 11.4924 15.8333 13.3333 15.8333Z'
-                    stroke='#5D5D5D'
-                    strokeWidth='1.66667'
-                  />
-                  <path
-                    id='Vector_4'
-                    d='M15.8335 15L17.5002 16.6667'
-                    stroke='#5D5D5D'
-                    strokeWidth='1.66667'
-                    strokeLinecap='square'
-                  />
-                  <path
-                    id='Vector_5'
-                    d='M2.5 15.8333H5.83333'
-                    stroke='#5D5D5D'
-                    strokeWidth='1.66667'
-                    strokeLinecap='square'
-                    strokeLinejoin='round'
+                    d='M12.0001 10.7274L16.4551 6.2724L17.7277 7.545L13.2727 12L17.7277 16.455L16.4551 17.7276L12.0001 13.2726L7.54506 17.7276L6.27246 16.455L10.7275 12L6.27246 7.545L7.54506 6.2724L12.0001 10.7274Z'
+                    fill='#5D5D5D'
                   />
                 </g>
               </svg>
-            </button>
+            )}
             <div className='flex justify-center items-center p-1 w-10 h-10 rounded-full'>
               <div className='flex justify-center items-center p-px w-8 h-8 rounded-full border border-neutral-200'>
                 <div className='flex justify-center items-center bg-violet-300 h-[30px] rounded-[788.684px] w-[30px]'>
